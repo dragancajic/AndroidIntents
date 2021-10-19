@@ -27,13 +27,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		
 		if (viewClicked == R.id.create_explicit) {
 			// TODO: Build an explicit Intent to launch our Activity
-			
+			Intent explicitIntent = new Intent(this, DestinationActivity.class);
 			
 			// TODO: send data along with the Intent to the destination
 			
 			
 			// TODO: Start the activity with our explicit intent
-			
+			startActivity(explicitIntent);
 		}
 		else if (viewClicked == R.id.create_implicit) {
 			// TODO: Build an implicit intent to handle a type of action
