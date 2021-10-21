@@ -37,12 +37,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		}
 		else if (viewClicked == R.id.create_implicit) {
 			// TODO: Build an implicit intent to handle a type of action
+			// create an intent to send a piece of text data to another app
 			String textMessage = "This is a sample message";
+			
+			// first, create the intent, and then...
+			Intent implicitIntent = new Intent();
+			
+			// ...set the intent action along with the MIME type of data that I'm sending
+			implicitIntent.setAction(Intent.ACTION_SEND);
+			implicitIntent.setType("text/plain");
+			
+			// specify the data that will actually be sent
+			implicitIntent.putExtra(Intent.EXTRA_TEXT, textMessage);
 			
 			// TODO: use an intent chooser to force a choose dialog
 			
-			
 			// TODO: Verify that the intent will resolve to an activity
+			startActivity(implicitIntent);
 			
 			// Typically you would handle the null case here by informing the user
 			// that there is no installed app to handle this intent or
