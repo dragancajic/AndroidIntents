@@ -30,7 +30,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			Intent explicitIntent = new Intent(this, DestinationActivity.class);
 			
 			// TODO: send data along with the Intent to the destination
-			
+			explicitIntent.putExtra("StringData", "This is a string");
+			explicitIntent.putExtra("IntData", 1234);
 			
 			// TODO: Start the activity with our explicit intent
 			startActivity(explicitIntent);
