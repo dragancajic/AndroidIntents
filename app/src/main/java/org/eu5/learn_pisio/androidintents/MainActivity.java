@@ -54,7 +54,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			// TODO: use an intent chooser to force a choose dialog
 			
 			// TODO: Verify that the intent will resolve to an activity
-			startActivity(implicitIntent);
+			// In the place where you call startActivity() for your implicit intent,
+			// use the resolveActivity() function to ensure that there is at least
+			// one app that can handle this intent.
+			// > on the intent, call resolveActivity()
+			// Return the Activity component that should be used to handle this intent.
+			// Consider adding a <queries> declaration to your manifest when calling this method;
+			// see https://g.co/dev/packagevisibility for details
+			if (implicitIntent.resolveActivity(getPackageManager()) != null) {
+				// Return PackageManager instance to find global package information.
+				startActivity(implicitIntent);
+			}
 			
 			// Typically you would handle the null case here by informing the user
 			// that there is no installed app to handle this intent or
